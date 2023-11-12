@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/code-convenience-and-ideas/packTemplate/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/code-convenience-and-ideas/packTemplate/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/code-convenience-and-ideas/packTemplate/branch/main/graph/badge.svg)](https://app.codecov.io/gh/code-convenience-and-ideas/packTemplate?branch=main)
 <!-- badges: end -->
 
 The goal of packTemplate is to ...
