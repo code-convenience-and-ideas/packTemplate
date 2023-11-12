@@ -9,6 +9,7 @@ repos:
 
     # R langauge precommit hooks
 -   repo: https://lorenzwalthert.github.io/precommit/articles/available-hooks.html
+    -   id: readme-rmd-rendered  # Makes sure Rmarkdown readme is in sync with expected, producted markdown readme.
     -   id: style-files  # Apply the tidyverse style guide on commit
         args: [--scope=spaces, --reindention=specify_reindention('#')]
     -   id: parsable-R  # Check the R files are parsable as is. Don't commit broken code
