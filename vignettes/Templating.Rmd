@@ -1,0 +1,40 @@
+---
+title: "Templating"
+output: rmarkdown::html_vignette
+description: |
+    Templating is the a quick investigation of setting up templates.
+vignette: >
+  %\VignetteIndexEntry{Templating}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+Many different source of information were used to put together this template packages and its worth documenting them all for easy review.
+
+* [R packages](https://r-pkgs.org/website.html) - covers general R package development
+* [precommit](https://pre-commit.com/) - covers general precommit setups
+* [r precommit](https://github.com/lorenzwalthert/precommit) - covers some extra r specific precommits
+* [pkgdown](https://pkgdown.r-lib.org/) - for building general packages from R documentation
+
+This template package used these resources to try and give an example that has:
+1. Automatic production of code documention
+2. Automatic pre-commit running of code checks and tests
+3. Some Continuous Integration (CI) / Continuous Deployment (CD) pipelines in Github
+4. An automatically built package website
+5. Experiments with the R package building process
+6. Suitable testthat R examples and linkages for CI / CD
+7. Key vignettes showing relevant background information
+
+```{r setup}
+library(packTemplate)
+```
+

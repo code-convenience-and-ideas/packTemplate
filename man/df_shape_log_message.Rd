@@ -18,5 +18,5 @@ a string summarising dataframe shape and missing info
 Creates a log of dataframe shape, and entry missingness
 }
 \examples{
-    df_shape_log_message(cars)
+df_shape_log_message(cars)
 }

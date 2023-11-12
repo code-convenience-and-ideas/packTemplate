@@ -3,15 +3,9 @@ Type: Package
 Title: A template used as a basis for developing R packages to my liking
 Version: 0.0.1
 Authors@R:
-	person("Alex", "Baker", email = "alexbakercreates@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0009-0004-2844-9720"))
-Description: Building an R package has an element of choice and style and I have bundled these into a template.
-    This package provided a templated package set-up for my own used which covers:
-        Testing
-        Automatic documentation using roxygen2
-        pre-commit code formatting and cleaning
-        Building and including vignettes
-        A package website that should work on github pages
-        A package logo
+    person("Alex", "Baker", email = "alexbakercreates@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0009-0004-2844-9720"))
+Description: There are a few choices and patterns to building an R package. I have bundled these into a template to try and reflect a starting for my packages.
+    This templates aim to cover a setup with roxygen2 auto-documentation, testhat testing, precommit runs for code formating and cleaning, building and including a vignette, a package logo and a package website that should work on github pages.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -21,8 +15,11 @@ RoxygenNote: 7.2.3
 Imports:
     glue
 Suggests:
+    knitr,
     lintr (>= 3.1.1),
+    rmarkdown,
     styler,
     testthat (>= 3.0.0)
-URL: https://github.com/code-convenience-and-ideas/packTemplate
+URL: https://github.com/code-convenience-and-ideas/packTemplate, https://code-convenience-and-ideas.github.io/packTemplate/
 BugReports: https://github.com/code-convenience-and-ideas/packTemplate/issues
+VignetteBuilder: knitr
