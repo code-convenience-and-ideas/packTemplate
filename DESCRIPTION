@@ -1,11 +1,26 @@
 Package: packTemplate
 Type: Package
-Title: Templates for More R Packages
-Version: 0.1.0
-Author: Alex Baker <alexbakercreates@gmail.com>
-Maintainer: Alex Baker <alexbakercreates@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Title: A template used as a basis for developing R packages to my liking
+Version: 0.0.1
+Authors@R:
+	person("Alex", "Baker", email = "alexbakercreates@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0009-0004-2844-9720"))
+Description: Building an R package has an element of choice and style and I have bundled these into a template.
+    This package provided a templated package set-up for my own used which covers:
+        Testing
+        Automatic documentation using roxygen2
+        pre-commit code formatting and cleaning
+        Building and including vignettes
+        A package website that should work on github pages
+        A package logo
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports:
+    glue
+Suggests:
+    lintr (>= 3.1.1),
+    styler,
+    testthat (>= 3.0.0)
