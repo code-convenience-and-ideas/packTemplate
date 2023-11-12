@@ -1,0 +1,18 @@
+# .pre-commit-config.yaml
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    # rev: v4.1.0  # this is optional, use `pre-commit autoupdate` to get the latest rev!
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer  # Standard git, fix end of file spaces
+    -   id: trailing-whitespace  # Get rid of trailing whitespaces
+
+    # R langauge precommit hooks
+-   repo: https://lorenzwalthert.github.io/precommit/articles/available-hooks.html
+    -   id: style-files  # Apply the tidyverse style guide on commit
+        args: [--scope=spaces, --reindention=specify_reindention('#')]
+    -   id: parsable-R  # Check the R files are parsable as is. Don't commit broken code
+    -   id: roxygenize  # Prepare roxygenise documentation automatically
+    -   id: lintr  # Run the R lintr but do it in a way that doesn't block commit -> summarise warnings
+        args: [--warn_only]
+        verbose: true
