@@ -73,13 +73,15 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of packTemplate is to …</p>
+<p>The goal of packTemplate is to build up an example of how I like to build and maintain R packages.</p>
+<p>The hope is to integrate the various parts I’d like for ideally having a modern Continuous Integration, Continuous Development (CI/CD) approach to R code. To that end, I importantly aim to cover: * Github actions checking the package build * Automatic testing checks for the code with test packages and coverage checking * Git pre-commit operations to enforce consistent styles and formatting on the code * A nice, modern logging approach to * Automatic documentation and site building with example of vignettes, new, readmes and a package website.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>You can install the development version of packTemplate like so:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># You can install thhis package directly from github</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"https://github.com/code-convenience-and-ideas/packTemplate.git"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
@@ -87,7 +89,10 @@
 <p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/code-convenience-and-ideas/packTemplate" class="external-link">packTemplate</a></span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
+<span></span>
+<span><span class="co">## basic example code</span></span>
+<span><span class="fu">packTemplate</span><span class="fu">::</span><span class="fu"><a href="reference/hello.html">hello</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Hello, world!"</span></span></code></pre></div>
 <p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
@@ -139,6 +144,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/code-convenience-and-ideas/packTemplate/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/code-convenience-and-ideas/packTemplate/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/code-convenience-and-ideas/packTemplate?branch=main" class="external-link"><img src="https://codecov.io/gh/code-convenience-and-ideas/packTemplate/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 
