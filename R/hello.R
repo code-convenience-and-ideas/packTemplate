@@ -15,10 +15,11 @@
 
 #' Hello function to print standard example.
 #'
-#' @return - nothing. Prints message to screen
+#' @return \value{None}
 #' @export
 #'
 #' @examples
+#' hello()
 hello <- function() {
   print("Hello, world!")
 }
