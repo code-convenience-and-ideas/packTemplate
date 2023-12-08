@@ -9,3 +9,5 @@
 ^\.Rproj\.user$
 ^codecov\.yml$
 ^cran-comments\.md$
+^LICENSE\.md$
+^\.pre-commit-config\.yaml$

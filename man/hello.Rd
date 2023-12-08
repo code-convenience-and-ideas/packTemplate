@@ -7,10 +7,11 @@
 hello()
 }
 \value{
-\itemize{
-\item nothing. Prints message to screen
-}
+\value{None}
 }
 \description{
 Hello function to print standard example.
+}
+\examples{
+hello()
 }

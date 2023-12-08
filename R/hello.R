@@ -21,5 +21,6 @@
 #' @examples
 #' hello()
 hello <- function() {
-  print("Hello, world!")
+    print_hello <- print("Hello, world!")
+    return(NULL)
 }

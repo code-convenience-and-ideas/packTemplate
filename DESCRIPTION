@@ -15,7 +15,7 @@ RoxygenNote: 7.2.3
 Imports:
     glue
 Suggests:
-    knitr,
+    knitr (>= 1.42),
     lintr (>= 3.1.1),
     rmarkdown,
     styler,
@@ -23,3 +23,5 @@ Suggests:
 URL: https://github.com/code-convenience-and-ideas/packTemplate, https://code-convenience-and-ideas.github.io/packTemplate/
 BugReports: https://github.com/code-convenience-and-ideas/packTemplate/issues
 VignetteBuilder: knitr
+Remotes:  
+    yihui/knitr
