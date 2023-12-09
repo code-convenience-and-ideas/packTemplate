@@ -4,5 +4,5 @@ test_that("hello returns nothing", {
 })
 
 test_that("hello prints a message", {
-    expect_output(hello(), "Hello, world!")
+  expect_output(hello(), "Hello, world!")
 })

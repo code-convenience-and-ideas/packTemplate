@@ -8,9 +8,14 @@
 #' @examples
 #' df_shape_log_message(cars)
 df_shape_log_message <- function(data_to_log) {
-  dataframe_shape_message <- glue::glue("Dataframe has: {nrow(data_to_log)} rows, {ncol(data_to_log)} columns,
-    {sum(complete.cases(data_to_log))} rows without missing entries,
-    {sum(complete.cases(t(data_to_log)))} columns without missing entries")
+  row_missing_entries <- complete.cases(data_to_log)
+  column_missing_entries <- complete.cases(t(data_to_log))
+  dataframe_shape_message <-
+    glue::glue(
+      "Dataframe has: {nrow(data_to_log)} rows, {ncol(data_to_log)} columns,
+            {sum(row_missing_entries)} rows without missing entries,
+            {sum(column_missing_entries)} columns without missing entries"
+    )
 
   return(dataframe_shape_message)
 }
