@@ -1,17 +1,21 @@
-Package: packTemplate
 Type: Package
+Package: packTemplate
 Title: A template used as a basis for developing R packages to my liking
 Version: 0.0.1
 Authors@R:
-    person("Alex", "Baker", email = "alexbakercreates@gmail.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0009-0004-2844-9720"))
-Description: There are a few choices and patterns to building an R package. I have bundled these into a template to try and reflect a starting for my packages.
-    This templates aim to cover a setup with roxygen2 auto-documentation, testhat testing, precommit runs for code formating and cleaning, building and including a vignette, a package logo and a package website that should work on github pages.
+    person("Alex", "Baker", , "alexbakercreates@gmail.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0009-0004-2844-9720"))
+Description: There are a few choices and patterns to building an R
+    package. I have bundled these into a template to try and reflect a
+    starting for my packages.  This templates aim to cover a setup with
+    roxygen2 auto-documentation, testhat testing, precommit runs for code
+    formating and cleaning, building and including a vignette, a package
+    logo and a package website that should work on github pages.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-Config/testthat/edition: 3
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+URL: https://github.com/code-convenience-and-ideas/packTemplate,
+    https://code-convenience-and-ideas.github.io/packTemplate/
+BugReports:
+    https://github.com/code-convenience-and-ideas/packTemplate/issues
 Imports:
     glue
 Suggests:
@@ -20,8 +24,12 @@ Suggests:
     rmarkdown,
     styler,
     testthat (>= 3.0.0)
-URL: https://github.com/code-convenience-and-ideas/packTemplate, https://code-convenience-and-ideas.github.io/packTemplate/
-BugReports: https://github.com/code-convenience-and-ideas/packTemplate/issues
-VignetteBuilder: knitr
-Remotes:  
+VignetteBuilder:
+    knitr
+Remotes:
     yihui/knitr
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3

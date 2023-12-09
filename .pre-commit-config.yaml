@@ -1,19 +1,39 @@
 # .pre-commit-config.yaml
 repos:
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.1.7
+    hooks:
+        # Run the linter.
+    -   id: ruff
+        types_or: [ python, pyi, jupyter ]  # Adding jupyter notebooks to checks
+        args: [ --fix ]
+        # Run the formatter.
+    -   id: ruff-format
+        types_or: [ python, pyi, jupyter ]  # Adding jupyter notebooks to checks
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    # rev: v4.1.0  # this is optional, use `pre-commit autoupdate` to get the latest rev!
+    rev: v4.5.0
     hooks:
     -   id: check-yaml
     -   id: end-of-file-fixer  # Standard git, fix end of file spaces
     -   id: trailing-whitespace  # Get rid of trailing whitespaces
-
-    # R langauge precommit hooks
--   repo: https://lorenzwalthert.github.io/precommit/articles/available-hooks.html
-    -   id: readme-rmd-rendered  # Makes sure Rmarkdown readme is in sync with expected, producted markdown readme.
-    -   id: style-files  # Apply the tidyverse style guide on commit
-        args: [--scope=spaces, --reindention=specify_reindention('#')]
-    -   id: parsable-R  # Check the R files are parsable as is. Don't commit broken code
-    -   id: roxygenize  # Prepare roxygenise documentation automatically
-    -   id: lintr  # Run the R lintr but do it in a way that doesn't block commit -> summarise warnings
-        args: [--warn_only]
-        verbose: true
+    -   id: detect-aws-credentials  # Aim to catch Accidentally added AWS crediential
+    -   id: check-added-large-files  # Check if particularly large files are being committed - avoid committing data
+        args: ['---maxkb 8192']  # Stopping file more than 1MB is hoping to stop most excel files and almost all proper data files
+    -   id: debug-statements  # Look for debug statements in python code -> should be removed before any release
+    -   id: check-toml  # Check toml files appropriately meet format -> should catch breaking pyproject.toml
+#-   repo: https://github.com/lorenzwalthert/precommit
+#    rev: v0.3.2
+#    hooks:
+#    -   id: readme-rmd-rendered  # Makes sure Rmarkdown readme is in sync with expected, producted markdown readme.
+#    -   id: style-files  # Apply the tidyverse style guide on commit
+#        args: [--scope=spaces, --reindention=specify_reindention('#')]
+#    -   id: parsable-R  # Check the R files are parsable as is. Don't commit broken code
+#    -   id: roxygenize  # Prepare roxygenise documentation automatically
+#    -   id: lintr  # Run the R lintr but do it in a way that doesn't block commit -> summarise warnings
+#        args: [--warn_only]
+#        verbose: true
+#    -   id: use-tidy-description  # Enforces tidy arrange of description file
+#    -   id: deps-in-desc  # Checks dependence parsed from code are appropriate in the description
+#    -   id: no-browser-statement  # Checks for leftover debugging statement - browser
+#    -   id: no-debug-statement  # Checks for leftover debugging statement - browser

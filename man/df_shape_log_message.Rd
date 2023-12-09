@@ -7,12 +7,10 @@
 df_shape_log_message(data_to_log)
 }
 \arguments{
-\item{data_to_log}{\itemize{
-\item dataset to create a log message from
-}}
+\item{data_to_log}{dataset to create a log message from}
 }
 \value{
-a string summarising dataframe shape and missing info
+a string summarising the dataframe shape and missing info
 }
 \description{
 Creates a log of dataframe shape, and entry missingness

@@ -15,7 +15,7 @@
 
 #' Hello function to print standard example.
 #'
-#' @return \value{None}
+#' @return Null
 #' @export
 #'
 #' @examples

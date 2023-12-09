@@ -1,8 +1,8 @@
 #' Creates a log of dataframe shape, and entry missingness
 #'
-#' @param data_to_log - dataset to create a log message from
+#' @param data_to_log dataset to create a log message from
 #'
-#' @return a string summarising dataframe shape and missing info
+#' @return a string summarising the dataframe shape and missing info
 #' @export
 #'
 #' @examples

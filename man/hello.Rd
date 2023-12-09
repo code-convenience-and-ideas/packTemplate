@@ -7,7 +7,7 @@
 hello()
 }
 \value{
-\value{None}
+Null
 }
 \description{
 Hello function to print standard example.
