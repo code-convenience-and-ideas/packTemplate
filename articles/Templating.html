@@ -101,6 +101,9 @@ precommit</a> - covers some extra r specific precommits</li>
 <li>
 <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> - for building
 general packages from R documentation</li>
+<li>
+<a href="https://www.njtierney.com/post/2017/10/27/change-pkg-name/" class="external-link">change-pkg-name</a>
+- for thinking of how to change the package name</li>
 </ul>
 <p>This template package used these resources to try and give an example
 that has: 1. Automatic production of code documention 2. Automatic
@@ -110,7 +113,68 @@ automatically built package website 5. Experiments with the R package
 building process 6. Suitable testthat R examples and linkages for CI /
 CD 7. Key vignettes showing relevant background information</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/code-convenience-and-ideas/packTemplate" class="external-link">packTemplate</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/code-convenience-and-ideas/packTemplate" class="external-link">packTemplate</a></span><span class="op">)</span></span>
+<span><span class="fu">packTemplate</span><span class="fu">::</span><span class="fu"><a href="../reference/hello.html">hello</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Hello, world!"</span></span>
+<span><span class="co">#&gt; NULL</span></span>
+<span><span class="fu">packTemplate</span><span class="fu">::</span><span class="fu"><a href="../reference/df_shape_log_message.html">df_shape_log_message</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Dataframe has: 50 rows, 2 columns,</span></span>
+<span><span class="co">#&gt; 50 rows without missing entries,</span></span>
+<span><span class="co">#&gt; 2 columns without missing entries</span></span></code></pre></div>
+<p>We also think to the set of <a href="https://usethis.r-lib.org/reference/index.html" class="external-link">usethis</a>
+commands that were involved in setting up this template package for
+reference.</p>
+<p>Please also note that these aren’t all run at once and not all
+necessarily used in this specific package. i.e some may depend on
+setting up a github remote not defined in these checks</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># initialising a package with version control and a license</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">"path_to_package"</span>)<span class="st">'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st"># usethis::create_project()  # alternative that creates Rstudio rpoj files</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">usethis::use_git()</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">usethis::use_mit_license()</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st"># Set it up to use testing + github</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">usethis::use_testhat()</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">usethis::use_readme_rmd()  # Adds a .rmd readme file which gets compiled to an readme.md</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">usethis::use_news_md()  # Adds a NEWS.md file for storing notes on version changes and releases</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">usethis::use_github_links()  # Add link of github remote to dscription file</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">usethis::use_roxygen_md()  # Use roxygen with markdown for documentation</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st"># usethis::use_github()  # I didn'</span>t use this here but can set up a new git repository</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># For adding packages in teh dependencies</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">"glue"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional for certain chages</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># usethis::rename_files(old, new)  # Manages renaming tests, and source files to match new name</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># usethis::use_r() to create new r file</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># usethis::use_test() to create testing file for the R file</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting up many TidyVerse style defaults</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_tidy_issue_template</span>()  <span class="co"># Adds the tidyverse issue template by default. It asks for a repex of the issue</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_tidy_contributing</span>()  <span class="co"># Adds the tidy version contribution guidelines to the package</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_tidy_coc</span>()  <span class="co"># Adds tidyverse code of conduct to the package</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Add relevant badges to the project - by default added to readme file</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_lifecycle_badge</span>(<span class="st">"experimental"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># use_cran_badge()  # Would use if release to CRAN to indicate the latest CRAN release</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding github actions for implementing parts of the CI / CD desires</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Lots of good github action examples here: https://github.com/r-lib/actions/tree/v2/examples</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github_action</span>(<span class="st">"check-standard"</span>)  <span class="co"># Runs R CMD Check on a few operating systems</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># usethis::use_github_action("test-coverage")  # Running test-coverage on push - USES EXTERNAL SERVICE, don't run unless code is public</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github_action</span>(<span class="st">"pr-commands"</span>)  <span class="co"># To enforce document update + styler use in code on pull requests</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_pkgdown_github_pages</span>()  <span class="co"># Sets up github</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github_action</span>(<span class="st">"lint-project"</span>)  <span class="co"># Sets up linting to run on package commit and check for R syntax errors</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># version increments</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_version</span>(<span class="at">which =</span> <span class="st">"patch"</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting up more examples for people to learn from</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Set some options in the R project to my preferred</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_blank_slate</span>(<span class="at">scope =</span> <span class="st">"project"</span>)  <span class="co"># Sets R project to not keep R workspace</span></span></code></pre></div>
+<p>The last very important part of this setup is establishing the git
+pre-commit hooks appropriately.</p>
 </div>
   </main>
 </div>
